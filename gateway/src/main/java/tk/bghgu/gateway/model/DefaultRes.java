@@ -1,4 +1,4 @@
-package tk.bghgu.auth.model.res;
+package tk.bghgu.gateway.model;
 
 import lombok.Data;
 import org.springframework.http.HttpStatus;
@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 
 @Data
 public class DefaultRes<T> {
-    private T data;
     private String msg;
+    private T data;
     private HttpStatus httpStatus;
 }
