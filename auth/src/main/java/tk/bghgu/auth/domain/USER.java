@@ -10,7 +10,7 @@ import javax.persistence.*;
 
 @Data
 @Entity(name = "USER")
-public class User {
+public class USER {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +21,7 @@ public class User {
     private String name;
 
     @Column(name = "Password")
-    private String password;
+    private String pw;
 
     private String loginId;
 }

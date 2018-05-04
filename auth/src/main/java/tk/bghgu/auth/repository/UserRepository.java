@@ -1,7 +1,7 @@
 package tk.bghgu.auth.repository;
 
 import org.springframework.data.repository.CrudRepository;
-import tk.bghgu.auth.domain.User;
+import tk.bghgu.auth.domain.USER;
 
 import java.util.Optional;
 
@@ -9,6 +9,6 @@ import java.util.Optional;
  * Created by ds on 2018-05-03.
  */
 
-public interface UserRepository extends CrudRepository<User, Integer> {
-    Optional<User> findByLoginId(final String loginId);
+public interface UserRepository extends CrudRepository<USER, Integer> {
+    Optional<USER> findByLoginId(final String loginId);
 }
