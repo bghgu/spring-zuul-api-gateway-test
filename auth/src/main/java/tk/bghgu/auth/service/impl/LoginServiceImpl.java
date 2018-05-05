@@ -1,6 +1,7 @@
 package tk.bghgu.auth.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import tk.bghgu.auth.dao.UserDao;
 import tk.bghgu.auth.domain.USER;
@@ -24,6 +25,18 @@ public class LoginServiceImpl implements LoginService {
     @Override
     public DefaultRes login(LoginReq loginReq) {
         Optional<USER> user = userDao.findByLoginId((loginReq.getId()));
+        DefaultRes res = new DefaultRes();
+        if(!user.isPresent()) {
+            res.setMsg("No USER");
+            res.setHttpStatus(HttpStatus.UNAUTHORIZED);
+            return res;
+        }
+        if(!user.get().getPw().equals(loginReq.getPw())) {
+            res.setMsg("NOT MATCH PW");
+            res.setHttpStatus(HttpStatus.UNAUTHORIZED);
+            return res;
+        }
+
         return null;
     }
 }

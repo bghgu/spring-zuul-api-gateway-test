@@ -13,7 +13,7 @@ import org.springframework.web.cors.CorsUtils;
  * Created by ds on 2018-05-01.
  */
 
-@Configuration
+/*@Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -45,4 +45,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authenticationProvider(customAuthenticationProvider);
     }
-}
+}*/
