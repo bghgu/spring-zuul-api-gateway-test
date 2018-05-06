@@ -10,6 +10,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import tk.bghgu.auth.domain.USER;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -35,5 +36,10 @@ public class UserRepositoryTest {
         }else {
             logger.info("No USER");
         }
+    }
+
+    @Test
+    public void testFindAll() {
+        Iterable<USER> userList = userRepository.findAll();
     }
 }

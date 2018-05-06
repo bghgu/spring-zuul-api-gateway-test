@@ -13,6 +13,8 @@ import tk.bghgu.auth.model.req.LoginReq;
 import tk.bghgu.auth.model.res.DefaultRes;
 import tk.bghgu.auth.service.LoginService;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * Created by ds on 2018-05-03.
  */
@@ -35,8 +37,9 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<DefaultRes> login(LoginReq loginReq) {
+    public ResponseEntity<DefaultRes> login(LoginReq loginReq, HttpServletRequest request) {
         logger.info("테스트 : " + loginReq.toString());
+        System.out.println(request.getHeader("Authorization"));
         return new ResponseEntity<DefaultRes>(loginService.login(loginReq), HttpStatus.OK);
     }
 

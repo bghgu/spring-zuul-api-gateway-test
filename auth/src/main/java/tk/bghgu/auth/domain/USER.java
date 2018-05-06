@@ -18,9 +18,11 @@ public class USER implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer ID;
+    private Integer id;
 
-    private String LoginId;
-    private String PassWord;
-    private String UserName;
+    private String loginId;
+
+    private String password;
+
+    private String name;
 }

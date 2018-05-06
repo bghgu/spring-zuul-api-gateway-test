@@ -41,7 +41,7 @@ public class LoginServiceImpl implements LoginService {
             res.setHttpStatus(HttpStatus.UNAUTHORIZED);
             return res;
         }
-        if(!user.get().getPassWord().equals(loginReq.getPw())) {
+        if(!user.get().getPassword().equals(loginReq.getPw())) {
             logger.info("테스트 : NOT MATCH PW");
             res.setMsg("NOT MATCH PW");
             res.setHttpStatus(HttpStatus.UNAUTHORIZED);
@@ -51,7 +51,7 @@ public class LoginServiceImpl implements LoginService {
         res.setMsg("LOGIN SUCCESS");
         res.setHttpStatus(HttpStatus.OK);
         res.setData(jwt(user.get()));
-        return null;
+        return res;
     }
 
     private String jwt(final USER user) {
