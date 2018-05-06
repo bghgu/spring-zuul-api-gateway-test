@@ -45,6 +45,7 @@ public class LoginController {
 
     @GetMapping("/home")
     public ResponseEntity<DefaultRes> home() {
+        logger.info("테스트 : home");
         DefaultRes res = new DefaultRes();
         res.setHttpStatus(HttpStatus.OK);
         res.setMsg("Welcome AUTH Server Home");
