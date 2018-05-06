@@ -19,7 +19,7 @@ public class UserDaoImpl implements UserDao {
     private UserRepository userRepository;
 
     @Override
-    public Optional<USER> findByLoginId(String loginId) {
-        return userRepository.findByLoginId(loginId);
+    public Optional<USER> findByLoginId(final String loginId) {
+        return userRepository.findById(1);
     }
 }

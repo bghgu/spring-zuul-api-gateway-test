@@ -12,7 +12,8 @@ import tk.bghgu.auth.service.JwtService;
 import tk.bghgu.auth.utils.SHA512EncryptUtils;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.UnsupportedEncodingException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -27,12 +28,14 @@ public class JwtServiceImpl implements JwtService {
     private String SALT;
 
     @Override
-    public <T> String createToken(String key, T data, String subject) {
+    public <T> String createToken(final String key, final T data) {
         String jwt = Jwts.builder()
                 .setHeaderParam("typ", "JWT")
                 .setHeaderParam("regDate", System.currentTimeMillis())
-                .setSubject(subject)
-                .claim(key, data)
+                .setExpiration(getTime())
+                .setId(key)
+                //.setSubject(subject)
+                //.claim(key, data)
                 .signWith(SignatureAlgorithm.HS512, SHA512EncryptUtils.encrypt(SALT))
                 .compact();
         return jwt;
@@ -66,7 +69,7 @@ public class JwtServiceImpl implements JwtService {
     }
 
     @Override
-    public String getAuthId(String key) {
+    public String getAuthId(final String key) {
         return this.getToken(key).get("id").toString();
     }
 
@@ -86,5 +89,12 @@ public class JwtServiceImpl implements JwtService {
             throw new UnauthorizedException();*/
             return false;
         }
+    }
+
+    private Date getTime() {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(new Date());
+        cal.add(Calendar.HOUR, 1);
+        return cal.getTime();
     }
 }

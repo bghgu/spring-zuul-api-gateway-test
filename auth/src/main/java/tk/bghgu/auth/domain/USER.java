@@ -3,25 +3,24 @@ package tk.bghgu.auth.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
- * Created by ds on 2018-05-03.
+ * Created by ds on 2018-05-06.
  */
 
 @Data
-@Entity(name = "USER")
-public class USER {
+@Entity
+@Table(name = "user")
+public class USER implements Serializable {
+
+    private static final long serialVersionUID = 512939796779635692L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    private Integer id;
+    private Integer ID;
 
-    @Column(name = "UserName")
-    private String name;
-
-    @Column(name = "Password")
-    private String pw;
-
-    private String loginId;
+    private String LoginId;
+    private String PassWord;
+    private String UserName;
 }

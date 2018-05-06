@@ -10,5 +10,5 @@ import java.util.Optional;
  */
 
 public interface UserRepository extends CrudRepository<USER, Integer> {
-    Optional<USER> findByLoginId(final String loginId);
+    //Optional<USER> findByLoginId(final String loginId);
 }

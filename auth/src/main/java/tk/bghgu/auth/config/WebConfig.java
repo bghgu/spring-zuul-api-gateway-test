@@ -18,11 +18,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     private JwtInterceptor jwtInterceptor;
 
     private static final String[] EXCLUDE_PATH = {
-            "/emc/login",
-            "/emc/clear",
-            "/vote/access",
-            "/vote/boardcast",
-            "/vote/test"
+            "/main",
+            "/login"
     };
 
     @Override
