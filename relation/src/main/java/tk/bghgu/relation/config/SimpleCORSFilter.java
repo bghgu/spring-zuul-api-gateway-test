@@ -1,4 +1,4 @@
-package tk.bghgu.gateway.config;
+package tk.bghgu.relation.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,18 +8,14 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Created by ds on 2018-05-03.
- */
-
-/*@Component
+@Component
 public class SimpleCORSFilter implements Filter {
 
     private static final Logger logger = LoggerFactory.getLogger(SimpleCORSFilter.class);
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
-        logger.info("GATEWAY CORS 필터 설정");
+        logger.info("RELATION CORS 필터 설정");
         HttpServletResponse response = (HttpServletResponse) res;
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, OPTIONS, DELETE");
@@ -29,6 +25,7 @@ public class SimpleCORSFilter implements Filter {
         chain.doFilter(req, res);
     }
 
+
     @Override
     public void init(FilterConfig filterConfig) {
     }
@@ -36,4 +33,5 @@ public class SimpleCORSFilter implements Filter {
     @Override
     public void destroy() {
     }
-}*/
+
+}
